@@ -5,6 +5,7 @@
     --secondary-color:#181818;
     --tertiary-color:#292929;
     --primary-color:#BB86FC;
+    --font-color: #e3e3e3;
     --green:#33ee0e;
     --secondary-purple:#3700B3;
 
@@ -14,7 +15,7 @@
     margin: 0px;
     padding: 0px;
     background-color: var(--main-dark-color);
-    color: white;
+    color: var(--font-color);
 }
 
 body{
@@ -52,7 +53,8 @@ header{
     font-family: 'Lato', sans-serif;
     font-family: 'The Nautigal', cursive;
     grid-area: cabecalho;
-    border-bottom: 2px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    
 }
 
 /* MAIN */ 
@@ -69,17 +71,37 @@ main{
     height: 350px;
     width: 350px;
     font-size: 60px; 
-    border-radius: 100%;
-    border: 5px solid;
-    border-color: var(--primary-color);
-    background-color: var(--secondary-color);
-    box-shadow: inset 6px 5px 22px 4px rgba(0,0,0,0.44);
-
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     font-family: 'Orbitron', sans-serif;
+    
+    border-radius: 50%;
+    background: var(--main-dark-color);
+    box-shadow: inset 5px 5px 10px #070707,inset -5px -5px 10px #1d1d1d;
+
+}
+p.twodots{
+    margin-left: 4px;
+}
+p.twodots,p#w_minutes,p#w_seconds{
+    background-color: var(--main-dark-color);
+}
+p#w_minutes,p#w_seconds{
+    z-index: 1;
+    text-shadow: 1px 1px 10px #5b5b5b,0px 2px 0px #ffffff;
+}
+
+p.timer_type{
+    position: absolute;
+    margin-top: 153px;
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--tertiary-color);
+    background: var(--main-dark-color);
+    text-shadow: 1px 1px 10px #070707,0px 2px 0px #1d1d1d;
+
 
 }
 
@@ -101,7 +123,7 @@ button.pause, button.start{
     font-weight: bold;
     border-radius: 5%;
     
-    color:white;
+    color: var(--font-color);
     background-color: var(--secondary-color);
     
     border-color: var(--primary-color);
@@ -133,15 +155,20 @@ form.input_form{
     border-radius: 5px;
     color: var(--primary-color);
     box-shadow: 1px 1px 20px 1px var(--primary-color);
-    border: 2px solid var(--primary-color);
+    border: 1px solid var(--primary-color);
     background-color: var(--secondary-color);
+
+    border-radius: 5px;
+background: #121212;
+box-shadow:  5px 5px 10px #070707,
+             -5px -5px 10px #1d1d1d;
 }
 
 input#time-minutes,input#send,input#time-seconds{
     width: 200px;
     height: 35px;
     font-size: 25px;
-    border: 2px solid var(--primary-color);
+    border: 1px solid var(--primary-color);
     border-radius: 5px;
     background-color: var(--tertiary-color);
 }
