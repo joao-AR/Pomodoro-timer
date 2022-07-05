@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/body.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=The+Nautigal:wght@400;700&display=swap" rel="stylesheet">
+
+<title>Pomodoro</title>
+</head>
+
+<body>
+    <header class="tag"><strong class="P">P</strong>omodoro timer</header>
+    <main class="conteudo">
+        <div class="timer-container">
+                <p id="w_minutes">00</p><p class="">:</p><p id="w_seconds">00</p>
+        </div>
+        <div class="buttons">
+            <button id= "start" class="start">START</button>
+            <button id= "pause" class="pause">PAUSE</button>
+        </div>
+    </main>
+    <footer class="tag">RODAPÉ</footer>
+    
+    <nav class="tag">
+            <p>Minutes</p>
+            <input id="time-minutes" type="text" name="minutos" placeholder="0">
+            <p>Seconds</p>
+            <input id="time-seconds" type="text" name="minutos" placeholder="0">
+            <input id= "send" type="submit" value="save">
+    </nav>
+</body>
+
+</html>
+
+<script src="../js/pomodoro-timer.js"></script>
