@@ -1,5 +1,6 @@
 
 :root{
+    
     --main-dark-color:#121212;
     --secondary-color:#181818;
     --tertiary-color:#292929;
@@ -8,7 +9,7 @@
     --secondary-purple:#3700B3;
 
 }
-
+/*313866 50409A 964EC2 FF788f*/
 *{
     margin: 0px;
     padding: 0px;
@@ -111,16 +112,29 @@ button.pause, button.start{
 /* NAV */
 
 nav{
-    padding: 10px;
     grid-area: navegacao;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+form.input_form{
+    width: 230px;
+    
+    height: 300px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
-    border-left: 2px solid var(--primary-color);
-    background-color: var(--secondary-color);
+
+    justify-content: center;
+    border-radius: 5px;
     color: var(--primary-color);
-    font-size: 30px;
+    box-shadow: 1px 1px 20px 1px var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 input#time-minutes,input#send,input#time-seconds{
@@ -128,6 +142,7 @@ input#time-minutes,input#send,input#time-seconds{
     height: 35px;
     font-size: 25px;
     border: 2px solid var(--primary-color);
+    border-radius: 5px;
     background-color: var(--tertiary-color);
 }
 
@@ -136,8 +151,6 @@ input#send{
     align-items: center;
     justify-content: center;
     margin-top: 10px;
-    color: var(--primary-color);
-    
 }
 
 
