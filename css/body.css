@@ -76,7 +76,7 @@ main{
     justify-content: center;
     overflow: hidden;
     font-family: 'Orbitron', sans-serif;
-    
+    /*border: 1px solid var(--primary-color);*/
     border-radius: 50%;
     background: var(--main-dark-color);
     box-shadow: inset 5px 5px 10px #070707,inset -5px -5px 10px #1d1d1d;
@@ -171,8 +171,11 @@ input#time-minutes,input#send,input#time-seconds{
     border: 1px solid var(--primary-color);
     border-radius: 5px;
     background-color: var(--tertiary-color);
+    text-align: center;
 }
-
+input ::placeholder{
+    text-align: center;
+}
 input#send{
     display: flex;
     align-items: center;

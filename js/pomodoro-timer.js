@@ -9,6 +9,8 @@ var ws = document.getElementById('w_seconds');
 var startTimer;
 
 start.addEventListener('click',function(e){
+    reset.style = "display: none"
+    pause.style = "display: flex"
     e.preventDefault();
     if(startTimer == undefined ){
         startTimer = setInterval (timer,1000);
@@ -39,8 +41,8 @@ function timer(){
 
 // Pausa o timer
 pause.addEventListener('click', function(){
-    pause.style = "display: none;"
-    reset.style = "dispay: flex;"
+    pause.style = "display: none"
+    reset.style = "display: block"
     pauseInterval()
     startTimer = undefined;
 })
@@ -52,8 +54,8 @@ function pauseInterval(){
 // resetar o tempo do timer
 
 reset.addEventListener('click', function(){
-    pause.style = "display: flex;"
-    reset.style = "dispay: none;"
+    reset.style = "display: none"
+    pause.style = "display: flex"
     restInterval();
     startTimer = undefined;
 })
@@ -64,6 +66,7 @@ function restInterval(){
     const time_seconds = document.querySelector("#time-seconds");
     wm.textContent = time_minutes.value;
     ws.textContent = time_seconds.value;
+    
     // Adiciona um 0 na frente de numeros menores que 10
     if(ws.textContent < 10){
         ws.textContent =  "0" + ws.textContent
@@ -79,7 +82,11 @@ function restInterval(){
     if(wm.textContent == "" ||wm.textContent == " " || wm.textContent == "0"){
         wm.textContent =  "00"
     }
+
+    
 }
+
+
 const save = document.querySelector("#send") // botão de enviar o tempo 
 
 save.addEventListener("click",function(e){
