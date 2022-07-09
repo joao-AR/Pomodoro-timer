@@ -26,6 +26,8 @@
         <div class="buttons">
             <button id= "start" class="start">START</button>
             <button id= "pause" class="pause">PAUSE</button>
+            <button id= "reset" class="pause" style="display: none;">RESET</button>
+
         </div>
     </main>
     
@@ -34,10 +36,10 @@
     <nav>   
         
         <form class="input_form">
-            
-            <input id="time-minutes" type="number" name="minutos" placeholder="type minutes">
+            <p>Minutes</p>
+            <input id="time-minutes" type="number" name="minutos" min="0" max="99" placeholder="type minutes">
             <p>Seconds</p>
-            <input id="time-seconds" type="number" name="minutos" placeholder="0">
+            <input id="time-seconds" type="number" name="segundos" min="0" max="59" placeholder="0">
             <input id= "send" type="submit" value="save">
             
         </form>
