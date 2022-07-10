@@ -15,7 +15,7 @@
 <title>Pomodoro</title>
 </head>
 
-<body>
+<body id ="body">
     <header><strong class="P">P</strong>omodoro timer</header>
     
     <main class="conteudo">
@@ -29,21 +29,22 @@
             <button id= "reset" class="pause" style="display: none;">RESET</button>
 
         </div>
+        <nav>   
+            
+            <form class="input_form">
+                    <p style="margin-bottom: 10px;">Minutes</p>
+                    <input id="time-minutes" type="number" name="minutos" min="0" max="99" placeholder="00">
+                   
+                    <p style="margin-bottom: 10px;">Seconds</p>
+                    <input id="time-seconds" type="number" name="segundos" min="0" max="59" placeholder="00">
+                    
+                    <input id= "send" type="submit" value="save">
+            </form>
+        </nav>
     </main>
     
     <footer></footer>
     
-    <nav>   
-        
-        <form class="input_form">
-            <p>Minutes</p>
-            <input id="time-minutes" type="number" name="minutos" min="0" max="99" placeholder="00">
-            <p>Seconds</p>
-            <input id="time-seconds" type="number" name="segundos" min="0" max="59" placeholder="00">
-            <input id= "send" type="submit" value="save">
-            
-        </form>
-    </nav>
 
 </body>
 

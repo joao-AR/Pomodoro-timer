@@ -1,7 +1,9 @@
 
-var start = document.getElementById('start') // botão start timer
-var pause = document.getElementById('pause') // botão pause timer
-var reset = document.getElementById('reset')
+var start = document.getElementById('start'); // botão start timer
+var pause = document.getElementById('pause'); // botão pause timer
+var reset = document.getElementById('reset');
+
+var save = document.getElementById("send") // botão de enviar o tempo 
 
 var wm = document.getElementById('w_minutes');
 var ws = document.getElementById('w_seconds');
@@ -87,7 +89,6 @@ function restInterval(){
 }
 
 
-const save = document.querySelector("#send") // botão de enviar o tempo 
 
 save.addEventListener("click",function(e){
     e.preventDefault();
@@ -127,6 +128,4 @@ save.addEventListener("click",function(e){
     if(wm.textContent == "" ||wm.textContent == " " || wm.textContent == "0"){
         wm.textContent =  "00"
     }
-    
-
 })

@@ -21,12 +21,12 @@
 body{
     display: grid;
     min-height: 100vh;/* ocupar a altura interira*/
-    grid-template-columns: 1fr 250px ;/*250px para a nevegação*/
+    grid-template-columns: 1fr; /* Apenenas uma coluno que vai ocular a tela toda*/
     grid-template-rows: 50px 1fr 50px;/*100px para o cabeçalho 1fr para ocupar o espaço todo e 100px para  rodapé*/
-    grid-template-areas:'cabecalho cabecalho'  'conteudo navegacao ' 'rodape rodape';
+    grid-template-areas:'cabecalho cabecalho'  'conteudo conteudo ' 'rodape rodape';
 }
 p{
-    background-color: var(--secondary-color);
+    background-color: #00000000;
 }
 
 strong.P{
@@ -134,7 +134,9 @@ button.pause, button.start{
 /* NAV */
 
 nav{
-    grid-area: navegacao;
+    /*grid-area: navegacao;*/
+    position: absolute;
+    align-self: flex-end;
     font-size: 25px;
     display: flex;
     align-items: center;
@@ -143,15 +145,17 @@ nav{
 }
 
 form.input_form{
-    width: 230px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 300px;
     
-    height: 300px;
+    height: 350px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 
-    justify-content: center;
     border-radius: 5px;
     color: var(--primary-color);
     box-shadow: 1px 1px 20px 1px var(--primary-color);
@@ -182,6 +186,7 @@ input#send{
     justify-content: center;
     margin-top: 10px;
 }
+
 
 
 /*FOOTER*/
