@@ -33,7 +33,11 @@ strong.P{
     color: var(--primary-color);
     background-color: var(--secondary-color);
 }
-@media(max-width: 700px){
+
+
+
+
+/*@media(max-width: 700px){
     body{
         grid-template-columns: 1fr;
         grid-template-rows: 80px 80px 1fr 100px;
@@ -41,7 +45,7 @@ strong.P{
         
     }
 
-}
+}*/
 header,footer{
     
     background-color: var(--secondary-color);
@@ -49,6 +53,9 @@ header,footer{
 }
 /* HEADER*/
 header{
+    display: flex;
+    align-items: center;
+
     font-size: 40px;
     font-family: 'Lato', sans-serif;
     font-family: 'The Nautigal', cursive;
@@ -57,31 +64,69 @@ header{
     
 }
 
+.cycles{
+    border-right: 1px solid var(--primary-color) ;
+    border-left: 1px solid var(--primary-color) ;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: var(--tertiary-color) !important;
+    border-radius: 5px;
+    width: 200px;
+    height: 100%;
+    margin-left:31% ;
+    font-size: 25px;
+    background-color: var(--secondary-color);
+    font-family: 'Orbitron', sans-serif;
+    overflow: hidden;
+}
+
+.cycles_quant{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    width: 60px;
+    height: 100%;
+
+}
 /* MAIN */ 
 main{
     margin: 20px;
+    flex-wrap: wrap;
     grid-area: conteudo;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
-
-.timer-container{
-    height: 350px;
-    width: 350px;
-    font-size: 60px; 
+.timeAndButtons{
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    flex-direction: column;
+}
+
+
+.timer-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 350px;
+    width: 350px;
+    
+    font-size: 60px; 
     font-family: 'Orbitron', sans-serif;
-    /*border: 1px solid var(--primary-color);*/
+    
     border-radius: 50%;
     background: var(--main-dark-color);
     box-shadow: inset 5px 5px 10px #070707,inset -5px -5px 10px #1d1d1d;
 
+    overflow: hidden;
 }
+
 p.twodots{
     margin-left: 4px;
 }
@@ -134,41 +179,37 @@ button.pause, button.start{
 /* NAV */
 
 nav{
-    /*grid-area: navegacao;*/
-    position: absolute;
-    align-self: flex-end;
-    font-size: 25px;
+    position:absolute;
     display: flex;
-    align-items: center;
-    margin-right: 20px;
+    font-size: 25px;
+    right: 20px;
     font-family: 'Orbitron', sans-serif;
 }
 
 form.input_form{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    width: 300px;
     
-    height: 350px;
-    padding: 10px;
+    width: 300px;
+    height: 300px;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     
-
-    border-radius: 5px;
     color: var(--primary-color);
-    box-shadow: 1px 1px 20px 1px var(--primary-color);
-    border: 1px solid var(--primary-color);
-    background-color: var(--secondary-color);
-
+    
     border-radius: 5px;
-background: #121212;
-box-shadow:  5px 5px 10px #070707,
-             -5px -5px 10px #1d1d1d;
+    border: 1px solid var(--primary-color);
+    
+    background-color: var(--secondary-color);
+    background: #121212;
+    
+    box-shadow:  5px 5px 10px #070707, -5px -5px 10px #1d1d1d;
+
+    overflow: hidden;
 }
 
-input#time-minutes,input#send,input#time-seconds{
+input#time-minutes,input#time-seconds{
     width: 200px;
     height: 35px;
     font-size: 25px;
@@ -181,10 +222,18 @@ input ::placeholder{
     text-align: center;
 }
 input#send{
+    font-family: 'Orbitron', sans-serif;
+    height: 50px;
+    align-self: stretch;
+    font-size: 30px;
+    background-color: var(--primary-color);
+    border: none;
+    text-align: center;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
+    top: 27px;
 }
 
 
@@ -194,4 +243,16 @@ input#send{
 footer{
     border-top: 2px solid var(--primary-color);
     grid-area: rodape;
+}
+
+@media(max-width: 1024px){
+    nav{
+        margin: 20px ;
+        left: 0px;
+        position:relative;
+    }
+
+    main{
+        flex-direction: column;
+    }
 }

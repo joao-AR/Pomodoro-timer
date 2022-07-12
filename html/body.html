@@ -16,27 +16,32 @@
 </head>
 
 <body id ="body">
-    <header><strong class="P">P</strong>omodoro timer</header>
+    <header>
+        <p><strong class="P">P</strong>omodoro timer</p>
+        <div class="cycles">Cycles<p class = "cycles_quant">2</p> </div>
+    </header>
     
     <main class="conteudo">
-        <div class="timer-container">
-                <p id="w_minutes">00</p><p class="twodots">:</p><p id="w_seconds">00</p>
-                <p class="timer_type">POMODORO</p>
-        </div>
-        <div class="buttons">
-            <button id= "start" class="start">START</button>
-            <button id= "pause" class="pause">PAUSE</button>
-            <button id= "reset" class="pause" style="display: none;">RESET</button>
+        <div class="timeAndButtons">
+            <div class="timer-container">
+                        <p id="w_minutes">00</p><p class="twodots">:</p><p id="w_seconds">00</p>
+                        <p class="timer_type">POMODORO</p>
+                </div>
+                <div class="buttons">
+                    <button id= "start" class="start">START</button>
+                    <button id= "pause" class="pause">PAUSE</button>
+                    <button id= "reset" class="pause" style="display: none;">RESET</button>
+    
+                </div>
+        </div>        
 
-        </div>
         <nav>   
             
             <form class="input_form">
-                    <p style="margin-bottom: 10px;">Minutes</p>
-                    <input id="time-minutes" type="number" name="minutos" min="0" max="99" placeholder="00">
-                   
-                    <p style="margin-bottom: 10px;">Seconds</p>
-                    <input id="time-seconds" type="number" name="segundos" min="0" max="59" placeholder="00">
+                    <p style="margin-top: 20px; margin-bottom: 10px;">Minutes</p>
+                    <input id="time-minutes"  type="number" name="minutos" min="0" max="99" placeholder="minutes">
+                    <p style="margin-top: 20px; margin-bottom: 10px">Seconds</p>
+                    <input id="time-seconds"  type="number" name="segundos" min="0" max="59" placeholder="minutes">
                     
                     <input id= "send" type="submit" value="save">
             </form>
