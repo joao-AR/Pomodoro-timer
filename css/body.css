@@ -1,6 +1,5 @@
 
 :root{
-    
     --main-dark-color:#121212;
     --secondary-color:#181818;
     --tertiary-color:#292929;
@@ -8,78 +7,68 @@
     --font-color: #e3e3e3;
     --green:#33ee0e;
     --secondary-purple:#3700B3;
-
 }
 /*313866 50409A 964EC2 FF788f*/
-*{
-    margin: 0px;
-    padding: 0px;
-    background-color: var(--main-dark-color);
-    color: var(--font-color);
-}
+*{margin: 0px; padding: 0px; background-color: var(--main-dark-color); color: var(--font-color);}
 
 body{
     display: grid;
     min-height: 100vh;/* ocupar a altura interira*/
-    grid-template-columns: 1fr; /* Apenenas uma coluno que vai ocular a tela toda*/
-    grid-template-rows: 50px 1fr 50px;/*100px para o cabeçalho 1fr para ocupar o espaço todo e 100px para  rodapé*/
-    grid-template-areas:'cabecalho cabecalho'  'conteudo conteudo ' 'rodape rodape';
+    grid-template-columns: 350px 1fr 350px; /* 350px nav 1fr conteudo 350px nvr*/
+    grid-template-rows: 50px 1fr 50px;/*50px para o cabeçalho 1fr para ocupar o espaço todo e 50px para  rodapé*/
+    grid-template-areas:
+    'cabecalho cabecalho cabecalho'  
+    'nav conteudo navr' 
+    'rodape rodape rodape';
 }
-p{
-    background-color: #00000000;
-}
+p{background-color: #00000000;}
 
-strong.P{
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
-}
+strong.P{color: var(--primary-color); background-color: var(--secondary-color);}
 
-
-
-
-/*@media(max-width: 700px){
+@media(max-width: 768px){
     body{
         grid-template-columns: 1fr;
-        grid-template-rows: 80px 80px 1fr 100px;
-        grid-template-areas: 'cabecalho' 'navegacao' 'coteudo' 'rodape';
-        
+        grid-template-rows: 50px 1fr 400px 50px;
+        grid-template-areas: 
+        'cabecalho' 
+        'conteudo'
+        'navr'
+        'rodape';
     }
-
-}*/
-header,footer{
-    
-    background-color: var(--secondary-color);
-    
 }
+
+header,footer{background-color: var(--secondary-color);}
 /* HEADER*/
 header{
+    grid-area: cabecalho;
     display: flex;
     align-items: center;
 
     font-size: 40px;
     font-family: 'Lato', sans-serif;
     font-family: 'The Nautigal', cursive;
-    grid-area: cabecalho;
     border-bottom: 1px solid var(--primary-color);
-    
 }
 
 .cycles{
-    border-right: 1px solid var(--primary-color) ;
-    border-left: 1px solid var(--primary-color) ;
-
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    background-color: var(--tertiary-color) !important;
-    border-radius: 5px;
+
     width: 200px;
     height: 100%;
     margin-left:31% ;
+
     font-size: 25px;
-    background-color: var(--secondary-color);
     font-family: 'Orbitron', sans-serif;
+    
+    border-radius: 5px;
+    border-right: 1px solid var(--primary-color) ;
+    border-left: 1px solid var(--primary-color) ;
+
+    background-color: var(--tertiary-color) !important;
+
     overflow: hidden;
 }
 
@@ -92,11 +81,11 @@ header{
     height: 100%;
 
 }
+
 /* MAIN */ 
 main{
-    margin: 20px;
-    flex-wrap: wrap;
     grid-area: conteudo;
+    margin: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,7 +96,6 @@ main{
     justify-content: center;
     flex-direction: column;
 }
-
 
 .timer-container{
     display: flex;
@@ -127,17 +115,9 @@ main{
     overflow: hidden;
 }
 
-p.twodots{
-    margin-left: 4px;
-}
-p.twodots,p#w_minutes,p#w_seconds{
-    background-color: var(--main-dark-color);
-}
-p#w_minutes,p#w_seconds{
-    z-index: 1;
-    text-shadow: 1px 1px 10px #5b5b5b,0px 2px 0px #ffffff;
-}
-
+p.twodots{margin-left: 4px;}
+p.twodots,p#w_minutes,p#w_seconds{background-color: var(--main-dark-color);}
+p#w_minutes,p#w_seconds{z-index: 1;text-shadow: 1px 1px 10px #5b5b5b,0px 2px 0px #ffffff;}
 p.timer_type{
     position: absolute;
     margin-top: 153px;
@@ -146,8 +126,6 @@ p.timer_type{
     color: var(--tertiary-color);
     background: var(--main-dark-color);
     text-shadow: 1px 1px 10px #070707,0px 2px 0px #1d1d1d;
-
-
 }
 
 .buttons{
@@ -175,40 +153,36 @@ button.pause, button.start{
     text-shadow: 2px 2px  rgba(15, 15, 15,0.50);
 }
 
-
 /* NAV */
-
-nav{
-    position:absolute;
+navr{
+    grid-area: navr;
     display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 25px;
     right: 20px;
     font-family: 'Orbitron', sans-serif;
 }
 
 form.input_form{
-    
-    width: 300px;
-    height: 300px;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
-    color: var(--primary-color);
-    
+
+    width: 300px;
+    height: 300px;
+
     border-radius: 5px;
     border: 1px solid var(--primary-color);
     
+    color: var(--primary-color);
     background-color: var(--secondary-color);
     background: #121212;
     
     box-shadow:  5px 5px 10px #070707, -5px -5px 10px #1d1d1d;
-
     overflow: hidden;
 }
-
 input#time-minutes,input#time-seconds{
     width: 200px;
     height: 35px;
@@ -221,38 +195,46 @@ input#time-minutes,input#time-seconds{
 input ::placeholder{
     text-align: center;
 }
+
 input#send{
-    font-family: 'Orbitron', sans-serif;
-    height: 50px;
-    align-self: stretch;
-    font-size: 30px;
-    background-color: var(--primary-color);
-    border: none;
-    text-align: center;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    align-self: stretch;
+
+    position: relative;
     top: 27px;
+    
+    height: 50px;
+
+    font-size: 30px;
+    font-family: 'Orbitron', sans-serif;
+    border: none;
+    background-color: var(--primary-color);
+    
+    
 }
 
+@media(max-width: 768px){
+    form.input_form{
+        width: 100%;
+        height: 350px;
+        font-size: 30px;
+    }
+    input#time-minutes,input#time-seconds{
+        width: 80%;
+        height: 50px;
+    }
+    input#send{
+        font-size: 35px;
+        top: 32px;}
 
+}
 
 /*FOOTER*/
 
 footer{
     border-top: 2px solid var(--primary-color);
     grid-area: rodape;
-}
-
-@media(max-width: 1024px){
-    nav{
-        margin: 20px ;
-        left: 0px;
-        position:relative;
-    }
-
-    main{
-        flex-direction: column;
-    }
 }
