@@ -4,6 +4,7 @@
     --secondary-color:#181818;
     --tertiary-color:#292929;
     --primary-color:#BB86FC;
+    --primary-color:#ae76f3;
     --font-color: #e3e3e3;
     --green:#33ee0e;
     --secondary-purple:#3700B3;
@@ -235,6 +236,14 @@ input#send{
 /*FOOTER*/
 
 footer{
-    border-top: 2px solid var(--primary-color);
     grid-area: rodape;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    border-top: 2px solid var(--primary-color);
+}
+
+.my_linkedin{
+    background-color: #00000000;
+    margin-right:10px;
 }
