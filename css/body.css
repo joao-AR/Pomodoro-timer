@@ -127,7 +127,7 @@ navr, nav{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 25px;
+    font-size: 30px;
     
     font-family: 'Orbitron', sans-serif;
 }
@@ -192,6 +192,8 @@ form.input_form{
     height: 85px;
     border-radius: 5px; 
     background-color: #292929;
+    
+}
     #inp-w{
         grid-area: inp-w;
     }
@@ -221,8 +223,6 @@ form.input_form{
         background-color: #292929; 
         
     }
-    
-}
 
 input#work-minutes,input#break-minutes{
     width: 100%;
@@ -245,10 +245,12 @@ input#send{
     align-self: stretch;
     height: 100%;
 
-    font-size: 30px;
+    font-size: 40px;
+    
     font-family: 'Orbitron', sans-serif;
     border: none;
     background-color: var(--primary-color);
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.438)
 }
 
 

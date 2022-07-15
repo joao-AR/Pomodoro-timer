@@ -8,11 +8,21 @@ var save = document.getElementById("send") // botão de enviar o tempo
 var bm = 5;
 var wm = 25;
 
+var wc = 0;
+var bc = 0;
+
+var totaltime_h = 0;
+var totaltime_m = 0;
+var totaltime_s = 0;
+
 var workMinutes = 0;
 var break_Time = false;
 
 var minutes = document.getElementById('pomodoro-minutes');
 var seconds = document.getElementById('pomodoro-seconds');
+
+var work_cycles = document.getElementById('cycles-w');
+var break_cycles = document.getElementById('cycles-b'); 
 
 var startTimer;
 
@@ -20,14 +30,14 @@ start.addEventListener('click',function(e){
     e.preventDefault();
     setStyleWorktime()
 
-    if(minutes.textContent != 0){ // Se o tempo for = 0 não vai inciar 
+    //if(minutes.textContent != 0){ // Se o tempo for = 0 não vai inciar 
         
         if(startTimer == undefined ){
             startTimer = setInterval (timer,1000);
         }else{
             alert("Pomodoro is already running");
         }
-    }
+    //}
 });
 
 function timer(){
@@ -115,6 +125,10 @@ function CheckIfBreakTime(){
 function setBreakTime(){
     clearInterval(startTimer);
     break_Time = true;
+    
+    wc = wc + 1;
+    work_cycles.textContent = "1";
+    
     minutes.textContent = bm;
     seconds.textContent = "00";
     startTimer = undefined;
@@ -130,6 +144,8 @@ function setStyleBreaktime(){
 function setWorkTime(){
     clearInterval(startTimer);
     break_Time = false;
+    bc = bc + 1;
+    break_cycles.textContent = bc;
     minutes.textContent = wm;
     seconds.textContent = "00";
     startTimer = undefined;
