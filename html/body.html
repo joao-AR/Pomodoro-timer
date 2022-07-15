@@ -37,19 +37,39 @@
 
     <navr class="navright">
         <form class="input_form">
-            <p style="margin-top: 20px; margin-bottom: 10px;">WORK</p>
-            <input id="work-minutes"  type="number" name="minutos" min="0" max="99" placeholder="minutes">
-            <p style="margin-top: 20px; margin-bottom: 10px">BREAK</p>
-            <input id="break-minutes"  type="number" name="segundos" min="0" max="59" placeholder="minutes">
-            
-            <input id= "send" type="submit" value="save">
+
+            <span id="inp-w">
+                <p class= "text-inputs">WORK</p>
+                <input id="work-minutes"  type="number" name="minutos" min="0" max="99" placeholder="minutes">
+            </span>
+
+            <span id="inp-b">
+                <p class= "text-inputs">BREAK</p>
+                <input id="break-minutes"  type="number" name="segundos" min="0" max="59" placeholder="minutes">
+            </span>
+
+            <span id="inp-s">
+                <input id= "send" type="submit" value="save">
+            </span>
         </form>
     </navr>
 
     <nav>
-        <form class="input_form">
+        
+        <div id = "cycles-container">
+            <div class="WC"> <p class="text" >Work cycles</p> <p class="cycles">0</p></div>
             
-        </form>
+            <div class="BC"> <p class="text" >Break cycles</p>  <p class="cycles">0</p> </div>
+            
+            <div class="TT">
+                <p class="text">Total Time</p>
+                <span class="Time" style="display: flex;">
+                    <p class="tt-h">00</p>: <p class="tt-m">00</p>:<p class ="tt-s">00</p> 
+                </span>
+            </div>
+        </div>
+
+        
     </nav>
     
     <footer>

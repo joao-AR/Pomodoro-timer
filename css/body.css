@@ -51,38 +51,6 @@ header{
     border-bottom: 1px solid var(--primary-color);
 }
 
-.cycles{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-
-    width: 200px;
-    height: 100%;
-    margin-left:31% ;
-
-    font-size: 25px;
-    font-family: 'Orbitron', sans-serif;
-    
-    border-radius: 5px;
-    border-right: 1px solid var(--primary-color) ;
-    border-left: 1px solid var(--primary-color) ;
-
-    background-color: var(--tertiary-color) !important;
-
-    overflow: hidden;
-}
-
-.cycles_quant{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-    width: 60px;
-    height: 100%;
-
-}
-
 /* MAIN */ 
 main{
     grid-area: conteudo;
@@ -175,13 +143,17 @@ nav{
 }
 
 form.input_form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
+    display: grid;
+    
+    min-height: 300px;/* ocupar a altura interira*/
+    grid-template-columns: 300px;
+    grid-template-rows: 160px 160px 1fr;
+    grid-template-areas:
+    'inp-w'  
+    'inp-b' 
+    'inp-s';
     width: 300px;
-    height: 300px;
+    height: 420px;
 
     border-radius: 5px;
     border: 1px solid var(--primary-color);
@@ -193,13 +165,72 @@ form.input_form{
     box-shadow:  5px 5px 10px #070707, -5px -5px 10px #1d1d1d;
     overflow: hidden;
 }
+#inp-w{
+    grid-area: inp-w;
+}
+
+#inp-b{
+    grid-area: inp-b;
+}
+
+#inp-s{
+    grid-area: inp-s;
+}
+
+#inp-w,#inp-b,#inp-s{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.text-inputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 85px;
+    border-radius: 5px; 
+    background-color: #292929;
+    #inp-w{
+        grid-area: inp-w;
+    }
+    
+    #inp-b{
+        grid-area: inp-b;
+    }
+    
+    #inp-s{
+        grid-area: inp-s;
+    }
+    
+    #inp-w,#inp-b,#inp-s{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+    }
+    
+    .text-inputs{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 85px;
+        border-radius: 5px; 
+        background-color: #292929; 
+        
+    }
+    
+}
+
 input#work-minutes,input#break-minutes{
-    width: 200px;
-    height: 35px;
-    font-size: 25px;
+    width: 100%;
+    height: 85px;
+    font-size: 35px;
     border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    background-color: var(--tertiary-color);
+    
+    background-color: var(--secondary-color);
     text-align: center;
 }
 input ::placeholder{
@@ -212,19 +243,16 @@ input#send{
     justify-content: center;
     text-align: center;
     align-self: stretch;
-
-    position: relative;
-    top: 27px;
-    
-    height: 50px;
+    height: 100%;
 
     font-size: 30px;
     font-family: 'Orbitron', sans-serif;
     border: none;
     background-color: var(--primary-color);
-    
-    
 }
+
+
+
 
 @media(max-width: 768px){
     form.input_form{
@@ -240,6 +268,70 @@ input#send{
         font-size: 35px;
         top: 32px;}
 
+}
+
+#cycles-container{
+    display: grid;
+    min-height: 300px;/* ocupar a altura interira*/
+    grid-template-columns: 300px;
+    grid-template-rows: 140px 140px 1fr;
+    grid-template-areas:
+    'wc'  
+    'bc' 
+    'tt';
+
+    width: 300px;
+    height: 420px;
+
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    background: #121212;
+    
+    box-shadow:  5px 5px 10px #070707, -5px -5px 10px #1d1d1d;
+    overflow: hidden;
+}
+
+#cycles-container > .WC{
+    grid-area: wc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--tertiary-color);
+}
+#cycles-container > .BC{
+    grid-area: bc;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.cycles{
+    font-size: 40px;
+}
+#cycles-container > .TT{
+    grid-area: tt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--tertiary-color);
+}
+
+#cycles-container > .TT > .Time{
+    font-size: 40px;
+    background-color: #00000000;
+}
+
+.text{
+    font-size: 30px;
+    margin-bottom: 15px;
+    margin-top: 20px;
 }
 
 /*FOOTER*/
