@@ -5,39 +5,44 @@ var reset = document.getElementById('reset');
 
 var save = document.getElementById("send") // botão de enviar o tempo 
 
-var wm = document.getElementById('w_minutes');
-var ws = document.getElementById('w_seconds');
+var bm = 5;
+var wm = 25;
+
+var workMinutes = 0;
+var break_Time = false;
+
+var minutes = document.getElementById('pomodoro-minutes');
+var seconds = document.getElementById('pomodoro-seconds');
 
 var startTimer;
 
 start.addEventListener('click',function(e){
-    reset.style = "display: none"
-    pause.style = "display: flex"
     e.preventDefault();
-    if(startTimer == undefined ){
-        startTimer = setInterval (timer,1000);
-    }else{
-        alert("Timer is already running");
+    setStyleWorktime()
+
+    if(minutes.textContent != 0){ // Se o tempo for = 0 não vai inciar 
+        
+        if(startTimer == undefined ){
+            startTimer = setInterval (timer,1000);
+        }else{
+            alert("Pomodoro is already running");
+        }
     }
 });
 
 function timer(){
     //Work Timer Countdown
-    if(ws.textContent != 0){
-        
-        ws.textContent--; 
-        
-        if(ws.textContent < 10){
-            ws.textContent =  "0" + ws.textContent
-        }
-    
-        
-    } else if(wm.textContent != 0 && ws.textContent == 0){
-        ws.textContent = 59;
-        wm.textContent--;
-        if(wm.textContent < 10){
-            wm.textContent =  "0" + wm.textContent
-        }
+    if(seconds.textContent != 0){
+        seconds.textContent--; 
+        seconds.textContent = CheckNumberLessThanTen(seconds.textContent);
+
+    } else if(minutes.textContent != 0 && seconds.textContent == 0){
+        seconds.textContent = 59;
+        minutes.textContent--;
+        minutes.textContent = CheckNumberLessThanTen(minutes.textContent);
+
+    }else if (minutes.textContent == 0 && seconds.textContent == 0 ){
+        CheckIfBreakTime();
     }
 }
 
@@ -64,68 +69,75 @@ reset.addEventListener('click', function(){
 
 function restInterval(){
     clearInterval(startTimer);
-    const time_minutes = document.querySelector("#time-minutes");
-    const time_seconds = document.querySelector("#time-seconds");
-    wm.textContent = time_minutes.value;
-    ws.textContent = time_seconds.value;
-    
-    // Adiciona um 0 na frente de numeros menores que 10
-    if(ws.textContent < 10){
-        ws.textContent =  "0" + ws.textContent
-    }
-
-    if(wm.textContent < 10){
-        wm.textContent =  "0" + wm.textContent
-    }
-
-    if(ws.textContent == "" ||ws.textContent == " " || ws.textContent == "0"){
-        ws.textContent =  "00"
-    }
-    if(wm.textContent == "" ||wm.textContent == " " || wm.textContent == "0"){
-        wm.textContent =  "00"
-    }
-
-    
+    const time_minutes = document.querySelector("#work-minutes");
+    minutes.textContent = CheckNumberLessThanTen(time_minutes.value);
+    seconds.textContent = "00";
 }
-
-
 
 save.addEventListener("click",function(e){
     e.preventDefault();
 
-    const time_minutes = document.querySelector("#time-minutes");
-    const time_seconds = document.querySelector("#time-seconds");
-    console.log(time_minutes)
-    if(time_minutes.value > 99){ // limite maximo de tempo em minutos = 99
-        time_minutes.value = 99;
-        window.alert("Max minutes value is 99 ");
+    const time_minutes = document.querySelector("#work-minutes");
+    const break_minutes = document.querySelector("#break-minutes");
 
-    }else{
-        wm.textContent = time_minutes.value;
-    }
+    minutes.textContent = wm = CheckNumberLessThanTen(time_minutes.value);
+    minutes.textContent = wm = CheckNumberBiggerThanNineNine(time_minutes.value)
+    bm = CheckNumberLessThanTen(break_minutes.value);
+    bm = CheckNumberBiggerThanNineNine(break_minutes.value)
 
-    if(time_seconds.value > 59){ // limite maximo de tempo em segundos = 59
-        time_seconds.value = 59;
-        window.alert("Max Secods value is 99 ");
-
-    }else{
-        ws.textContent = time_seconds.value;
-    }
-    
-
-    // Adiciona um 0 na frente de numeros menores que 10
-    if(ws.textContent < 10){
-        ws.textContent =  "0" + ws.textContent
-    }
-
-    if(wm.textContent < 10){
-        wm.textContent =  "0" + wm.textContent
-    }
-
-    if(ws.textContent == "" ||ws.textContent == " " || ws.textContent == "0"){
-        ws.textContent =  "00"
-    }
-    if(wm.textContent == "" ||wm.textContent == " " || wm.textContent == "0"){
-        wm.textContent =  "00"
-    }
+    seconds.textContent = "00";
 })
+
+function CheckNumberLessThanTen(number){
+    // Adiciona um 0 na frente de numeros menores que 10
+    if(number < 10) number = "0" + number;
+    if(number == "" || number == "" || number == "0") number = "00";
+    return number;
+}
+
+function CheckNumberBiggerThanNineNine(number){
+    if(number > 99){
+        number = 99
+        window.alert("Max minutes value is 99 ");
+    }
+    return number;
+}
+
+function CheckIfBreakTime(){
+    if(break_Time == false){ // Hora do intervalo 
+        setBreakTime();
+        setStyleBreaktime();
+    }else{// Hora do trabalho
+        setWorkTime()
+    }
+}
+
+function setBreakTime(){
+    clearInterval(startTimer);
+    break_Time = true;
+    minutes.textContent = bm;
+    seconds.textContent = "00";
+    startTimer = undefined;
+}
+
+function setStyleBreaktime(){
+    reset.style = "display: none"
+    pause.style = "display: none"
+    start.innerHTML ="START BREAK"
+    start.style = "width: 300px"
+}
+
+function setWorkTime(){
+    clearInterval(startTimer);
+    break_Time = false;
+    minutes.textContent = wm;
+    seconds.textContent = "00";
+    startTimer = undefined;
+}
+
+function setStyleWorktime(){
+    reset.style = "display: none"
+    pause.style = "display: flex"
+    start.innerHTML ="START"
+    start.style = "width: 150px"
+}

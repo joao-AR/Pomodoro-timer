@@ -117,8 +117,8 @@ main{
 }
 
 p.twodots{margin-left: 4px;}
-p.twodots,p#w_minutes,p#w_seconds{background-color: var(--main-dark-color);}
-p#w_minutes,p#w_seconds{z-index: 1;text-shadow: 1px 1px 10px #5b5b5b,0px 2px 0px #ffffff;}
+p.twodots,p#pomodoro-minutes,p#pomodoro-seconds{background-color: var(--main-dark-color);}
+p#pomodoro-minutes,p#pomodoro-seconds{z-index: 1;text-shadow: 1px 1px 10px #5b5b5b,0px 2px 0px #ffffff;}
 p.timer_type{
     position: absolute;
     margin-top: 153px;
@@ -145,7 +145,7 @@ button.pause, button.start{
     width: 150px;
     font-size: 30px;
     font-weight: bold;
-    border-radius: 5%;
+    border-radius: 5px;
     
     color: var(--font-color);
     background-color: var(--secondary-color);
@@ -155,14 +155,23 @@ button.pause, button.start{
 }
 
 /* NAV */
-navr{
-    grid-area: navr;
+navr, nav{
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 25px;
-    right: 20px;
+    
     font-family: 'Orbitron', sans-serif;
+}
+
+navr{
+    grid-area: navr;
+    right: 20px;
+}
+
+nav{
+    grid-area: nav;
+    left: 20px;
 }
 
 form.input_form{
@@ -184,7 +193,7 @@ form.input_form{
     box-shadow:  5px 5px 10px #070707, -5px -5px 10px #1d1d1d;
     overflow: hidden;
 }
-input#time-minutes,input#time-seconds{
+input#work-minutes,input#break-minutes{
     width: 200px;
     height: 35px;
     font-size: 25px;
@@ -223,7 +232,7 @@ input#send{
         height: 350px;
         font-size: 30px;
     }
-    input#time-minutes,input#time-seconds{
+    input#work-minutes,input#break-minutes{
         width: 80%;
         height: 50px;
     }
