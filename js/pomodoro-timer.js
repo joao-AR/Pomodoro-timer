@@ -5,15 +5,16 @@ var reset = document.getElementById('reset');
 
 var save = document.getElementById("send") // botão de enviar o tempo 
 
+var totaltime_h = document.getElementById('tth');
+var totaltime_m = document.getElementById('ttm');
+var totaltime_s = document.getElementById('tts');
+
 var bm = 5;
 var wm = 25;
 
 var wc = 0;
 var bc = 0;
 
-var totaltime_h = 0;
-var totaltime_m = 0;
-var totaltime_s = 0;
 
 var workMinutes = 0;
 var break_Time = false;
@@ -42,6 +43,7 @@ start.addEventListener('click',function(e){
 
 function timer(){
     //Work Timer Countdown
+    totalTimer();
     if(seconds.textContent != 0){
         seconds.textContent--; 
         seconds.textContent = CheckNumberLessThanTen(seconds.textContent);
@@ -56,6 +58,25 @@ function timer(){
     }
 }
 
+function totalTimer(){
+    
+    if(totaltime_s.textContent < 60){
+        totaltime_s.textContent++;
+        CheckNumberLessThanTen(totaltime_s.textContent)
+    }else{
+        if(totaltime_m.textContent< 60){
+            totaltime_m.textContent++;
+            CheckNumberLessThanTen(totaltime_m.textContent)
+            totaltime_s.textContent = "00";
+        }else{
+            totaltime_h.textContent++;
+            CheckNumberLessThanTen(totaltime_h.textContent)
+            totaltime_m.textContent = "00"; 
+            totaltime_s.textContent = "00";
+        }
+        
+    }
+}
 // Pausa o timer
 pause.addEventListener('click', function(){
     pause.style = "display: none"
