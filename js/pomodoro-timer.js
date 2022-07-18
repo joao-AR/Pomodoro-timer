@@ -31,14 +31,14 @@ start.addEventListener('click',function(e){
     e.preventDefault();
     setStyleWorktime()
 
-    //if(minutes.textContent != 0){ // Se o tempo for = 0 não vai inciar 
+    if(minutes.textContent != 0){ // Se o tempo for = 0 não vai inciar 
         
         if(startTimer == undefined ){
-            startTimer = setInterval (timer,1);
+            startTimer = setInterval (timer,1000);
         }else{
             alert("Pomodoro is already running");
         }
-    //}
+    }
 });
 
 function timer(){
@@ -185,5 +185,5 @@ function setStyleWorktime(){
     reset.style = "display: none"
     pause.style = "display: flex"
     start.innerHTML ="START"
-    start.style = "width: 150px"
+    start.style = "width: 170px"
 }
