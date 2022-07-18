@@ -34,7 +34,7 @@ start.addEventListener('click',function(e){
     //if(minutes.textContent != 0){ // Se o tempo for = 0 não vai inciar 
         
         if(startTimer == undefined ){
-            startTimer = setInterval (timer,1000);
+            startTimer = setInterval (timer,1);
         }else{
             alert("Pomodoro is already running");
         }
@@ -44,7 +44,9 @@ start.addEventListener('click',function(e){
 function timer(){
     //Work Timer Countdown
     totalTimer();
-    if(seconds.textContent != 0){
+    if (minutes.textContent == 0 && (seconds.textContent - 1)  == 0 ){
+        CheckIfBreakTime();
+    }else if(seconds.textContent != 0){
         seconds.textContent--; 
         seconds.textContent = CheckNumberLessThanTen(seconds.textContent);
 
@@ -53,24 +55,30 @@ function timer(){
         minutes.textContent--;
         minutes.textContent = CheckNumberLessThanTen(minutes.textContent);
 
-    }else if (minutes.textContent == 0 && seconds.textContent == 0 ){
-        CheckIfBreakTime();
-    }
+    } 
 }
 
 function totalTimer(){
     
     if(totaltime_s.textContent < 60){
         totaltime_s.textContent++;
-        CheckNumberLessThanTen(totaltime_s.textContent)
+        if(totaltime_s.textContent < 10){
+            totaltime_s.textContent = "0" +totaltime_s.textContent;
+        }
     }else{
         if(totaltime_m.textContent< 60){
             totaltime_m.textContent++;
-            CheckNumberLessThanTen(totaltime_m.textContent)
+            if(totaltime_m.textContent < 10){
+                totaltime_m.textContent = "0" +totaltime_m.textContent;
+            }
             totaltime_s.textContent = "00";
         }else{
             totaltime_h.textContent++;
-            CheckNumberLessThanTen(totaltime_h.textContent)
+            
+            if(totaltime_h.textContent < 10){
+                totaltime_h.textContent = "0" +totaltime_h.textContent;
+            }
+
             totaltime_m.textContent = "00"; 
             totaltime_s.textContent = "00";
         }
@@ -111,10 +119,11 @@ save.addEventListener("click",function(e){
     const time_minutes = document.querySelector("#work-minutes");
     const break_minutes = document.querySelector("#break-minutes");
 
-    minutes.textContent = wm = CheckNumberLessThanTen(time_minutes.value);
     minutes.textContent = wm = CheckNumberBiggerThanNineNine(time_minutes.value)
-    bm = CheckNumberLessThanTen(break_minutes.value);
+    minutes.textContent = wm = CheckNumberLessThanTen(time_minutes.value);
+
     bm = CheckNumberBiggerThanNineNine(break_minutes.value)
+    bm = CheckNumberLessThanTen(break_minutes.value);
 
     seconds.textContent = "00";
 })
