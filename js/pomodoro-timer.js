@@ -185,5 +185,5 @@ function setStyleWorktime(){
     reset.style = "display: none"
     pause.style = "display: flex"
 
-    start.style = "width: 170px"
+    start.style = "width: 165px"
 }
