@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/body.css">
+    <link rel="stylesheet" href="../css/pomodoro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,9 +27,17 @@
                 <p class="timer_type">POMODORO</p>
             </div>
                 <div class="buttons">
-                    <button id= "start" class="start">START</button>
-                    <button id= "pause" class="pause">PAUSE</button>
-                    <button id= "reset" class="pause" style="display: none;">RESET</button>
+                    <button id= "start" class="start">
+                        <img class= "start-img" src="../img/play-solid.svg" alt="start"  >
+                    </button>
+
+                    <button id= "pause" class="pause">
+                        <img class= "pause-img" src="../img/pause-solid.svg" alt="pause"  >
+                    </button>
+                    <button id= "reset" class="pause" style="display: none;">
+                        <img class= "reset-img" src="../img/rotate-left-solid.svg" alt="reset"  >
+
+                    </button>
                 </div>
         </div>        
     </main>
@@ -48,7 +56,8 @@
             </span>
 
             <span id="inp-s">
-                <input id= "send" type="submit" value="save">
+                <input id= "send" type="submit">
+                
             </span>
         </form>
     </navr>

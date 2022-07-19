@@ -88,7 +88,7 @@ function totalTimer(){
 // Pausa o timer
 pause.addEventListener('click', function(){
     pause.style = "display: none"
-    reset.style = "display: block"
+    reset.style = "display: flex"
     pauseInterval()
     startTimer = undefined;
 })
@@ -184,6 +184,6 @@ function setWorkTime(){
 function setStyleWorktime(){
     reset.style = "display: none"
     pause.style = "display: flex"
-    start.innerHTML ="START"
+
     start.style = "width: 170px"
 }
