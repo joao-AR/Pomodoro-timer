@@ -1,0 +1,15 @@
+/* HEADER*/
+header{
+    grid-area: cabecalho;
+    display: flex;
+    align-items: center;
+
+    font-size: 40px;
+    font-family: 'Lato', sans-serif;
+    font-family: 'The Nautigal', cursive;
+    border-bottom: 1px solid var(--primary-color);
+}
+strong.P{
+    color: var(--primary-color); 
+    background-color: var(--secondary-color);
+}

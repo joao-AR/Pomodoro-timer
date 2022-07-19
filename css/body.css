@@ -1,0 +1,43 @@
+
+:root{
+    --main-dark-color:#121212;
+    --secondary-color:#181818;
+    --tertiary-color:#292929;
+    --primary-color:#BB86FC;
+    --font-color: #e3e3e3;
+    --green:#33ee0e;
+    --secondary-purple:#3700B3;
+}
+/*313866 50409A 964EC2 FF788f*/
+*{margin: 0px; padding: 0px; background-color: var(--main-dark-color); color: var(--font-color);}
+
+body{
+    display: grid;
+    min-height: 100vh;/* ocupar a altura interira*/
+    grid-template-columns: 350px 1fr 350px; /* 350px nav 1fr conteudo 350px nvr*/
+    grid-template-rows: 49px 1fr 49px;/*50px para o cabeçalho 1fr para ocupar o espaço todo e 50px para  rodapé*/
+    grid-template-areas:
+    'cabecalho cabecalho cabecalho' 
+    'nav conteudo navr' 
+    'rodape rodape rodape';
+}
+p{background-color: #00000000;}
+
+
+@media(max-width: 768px){
+    body{
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 1fr 400px 400px 50px;
+        grid-template-areas: 
+        'cabecalho' 
+        'conteudo'
+        'navr'
+        'nav'
+        'rodape';
+    }
+}
+
+header,footer{background-color: var(--secondary-color);}
+
+
+

@@ -1,0 +1,14 @@
+/*FOOTER*/
+
+footer{
+    grid-area: rodape;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    border-top: 2px solid var(--primary-color);
+}
+
+.my_linkedin{
+    background-color: #00000000;
+    margin-right:10px;
+}
