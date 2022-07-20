@@ -29,7 +29,6 @@ var startTimer;
 
 start.addEventListener('click',function(e){
     e.preventDefault();
-    setStyleWorktime()
 
     if(minutes.textContent != 0){ // Se o tempo for = 0 não vai inciar 
         
@@ -87,10 +86,14 @@ function totalTimer(){
 }
 // Pausa o timer
 pause.addEventListener('click', function(){
-    pause.style = "display: none"
-    reset.style = "display: flex"
-    pauseInterval()
-    startTimer = undefined;
+
+    setTimeout(() => {
+        pause.style = "display: none"
+        reset.style = "display: flex"
+        pauseInterval()
+        startTimer = undefined;
+        
+    },400);
 })
 
 function pauseInterval(){
@@ -100,10 +103,13 @@ function pauseInterval(){
 // resetar o tempo do timer
 
 reset.addEventListener('click', function(){
-    reset.style = "display: none"
-    pause.style = "display: flex"
-    restInterval();
-    startTimer = undefined;
+
+    setTimeout(() => {
+        reset.style = "display: none"
+        pause.style = "display: flex"
+        restInterval();
+        startTimer = undefined;
+    },400);
 })
 
 function restInterval(){
@@ -146,7 +152,7 @@ function CheckNumberBiggerThanNineNine(number){
 function CheckIfBreakTime(){
     if(break_Time == false){ // Hora do intervalo 
         setBreakTime();
-        setStyleBreaktime();
+        //setStyleBreaktime();
     }else{// Hora do trabalho
         setWorkTime()
     }
@@ -181,9 +187,3 @@ function setWorkTime(){
     startTimer = undefined;
 }
 
-function setStyleWorktime(){
-    reset.style = "display: none"
-    pause.style = "display: flex"
-
-    start.style = "width: 165px"
-}

@@ -5,7 +5,7 @@ footer{
     display: flex;
     align-items: center;
     justify-content: end;
-    border-top: 2px solid var(--primary-color);
+    border-top: 1px solid var(--primary-color);
 }
 
 .my_linkedin{

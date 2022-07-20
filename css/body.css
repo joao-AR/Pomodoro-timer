@@ -5,8 +5,7 @@
     --tertiary-color:#292929;
     --primary-color:#BB86FC;
     --font-color: #e3e3e3;
-    --green:#33ee0e;
-    --secondary-purple:#3700B3;
+    --secondary-purple:#c49df4;
 }
 /*313866 50409A 964EC2 FF788f*/
 *{margin: 0px; padding: 0px; background-color: var(--main-dark-color); color: var(--font-color);}

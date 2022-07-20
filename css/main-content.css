@@ -20,7 +20,7 @@ main{
     height: 350px;
     width: 350px;
     
-    font-size: 60px; 
+    font-size: 70px; 
     font-family: 'Orbitron', sans-serif;
     
     border-radius: 50%;
@@ -32,7 +32,7 @@ main{
 
 p.twodots{margin-left: 4px;}
 p.twodots,p#pomodoro-minutes,p#pomodoro-seconds{background-color: var(--main-dark-color);}
-p#pomodoro-minutes,p#pomodoro-seconds{z-index: 1;text-shadow: 1px 1px 10px #5b5b5b,0px 2px 0px #ffffff;}
+p#pomodoro-minutes,p#pomodoro-seconds{z-index: 1;text-shadow: 1px 1px 10px var(--tertiary-color),0px 2px 0px var(--font-color);}
 p.timer_type{
     position: absolute;
     margin-top: 153px;
@@ -49,29 +49,43 @@ p.timer_type{
     flex-direction: row;
 }
 
-button.pause, button.start{
+button.pause, button.start,button.reset{
     display: flex;
     align-items: center;
     justify-content: center;
-
     margin-inline: 10px;
     margin-top: 20px;
-    height: 65px;
-    width: 165px;
-
+    height: 60px;
+    width: 150px;
+    border: 1px solid var(--primary-color);
     border-radius: 5px;
     border-color: var(--primary-color);
+    background-position: center;
+    transition: background 0.8s;
+
 }
-button.reset{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+
+.start:hover,.pause:hover,.reset:hover{
+cursor: pointer;
+background-color: var(--primary-color) ;
+background-image: radial-gradient(circle,transparent 1%,#a375db 1%);
+background-position: center;
+background-size: 15000%;
+
+}
+
+.start:active,.pause:active,.reset:active    {
+transition: background 0s;
+background-color: #fff;
+background-size: 100%;
+border: none;
 }
 
 .start-img,.pause-img,.reset-img{
     background-color: #00000000;
-    width: 35px; 
-    height: 35px;
+    width: 30px; 
+    height: 30px;
 }
 .start-img:hover,.pause-img:hover,.reset-img:hover{
     animation: bigger-size 100ms ease-in-out forwards; 
