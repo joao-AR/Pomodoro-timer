@@ -26,6 +26,7 @@ var work_cycles = document.getElementById('cycles-w');
 var break_cycles = document.getElementById('cycles-b'); 
 
 var startTimer;
+let audio =  document.getElementById("audioAlert")
 
 start.addEventListener('click',function(e){
     e.preventDefault();
@@ -44,6 +45,7 @@ function timer(){
     //Work Timer Countdown
     totalTimer();
     if (minutes.textContent == 0 && (seconds.textContent - 1)  == 0 ){
+        audio.play()
         CheckIfBreakTime();
     }else if(seconds.textContent != 0){
         seconds.textContent--; 
