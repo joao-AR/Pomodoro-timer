@@ -59,31 +59,25 @@ function timer(){
 
 function totalTimer(){
     
-    if(totaltime_s.textContent < 60){
+    if(totaltime_s.textContent < 59){
         totaltime_s.textContent++;
-        if(totaltime_s.textContent < 10){
-            totaltime_s.textContent = "0" +totaltime_s.textContent;
-        }
+        totaltime_s.textContent = CheckNumberLessThanTen(totaltime_s.textContent) ;
+    
     }else{
-        if(totaltime_m.textContent< 60){
+        if(totaltime_m.textContent < 59){
             totaltime_m.textContent++;
-            if(totaltime_m.textContent < 10){
-                totaltime_m.textContent = "0" +totaltime_m.textContent;
-            }
+            totaltime_m.textContent = CheckNumberLessThanTen(totaltime_m.textContent)
             totaltime_s.textContent = "00";
         }else{
             totaltime_h.textContent++;
-            
-            if(totaltime_h.textContent < 10){
-                totaltime_h.textContent = "0" +totaltime_h.textContent;
-            }
-
+            totaltime_h.textContent =  CheckNumberLessThanTen(totaltime_h.textContent)
             totaltime_m.textContent = "00"; 
             totaltime_s.textContent = "00";
         }
         
     }
 }
+
 // Pausa o timer
 pause.addEventListener('click', function(){
 
