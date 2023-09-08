@@ -30,7 +30,6 @@ let audio =  document.getElementById("audioAlert")
 
 start.addEventListener('click',function(e){
     e.preventDefault();
-
     if(minutes.textContent != 0){ // Se o tempo for = 0 não vai inciar 
         
         if(startTimer == undefined ){
@@ -43,7 +42,9 @@ start.addEventListener('click',function(e){
 
 function timer(){
     //Work Timer Countdown
-    totalTimer();
+    if(!break_Time){ // Não adicionar ao tempo total o tempo de descanso 
+        totalTimer();
+    }
     if (minutes.textContent == 0 && (seconds.textContent - 1)  == 0 ){
         audio.play()
         CheckIfBreakTime();
@@ -96,7 +97,7 @@ function pauseInterval(){
     clearInterval(startTimer);
 }
 
-// resetar o tempo do timer
+// Resetar o tempo do timer
 
 reset.addEventListener('click', function(){
 
@@ -133,7 +134,7 @@ save.addEventListener("click",function(e){
 function CheckNumberLessThanTen(number){
     // Adiciona um 0 na frente de numeros menores que 10
     if(number < 10) number = "0" + number;
-    if(number == "" || number == "" || number == "0") number = "00";
+    if(number == "" ||  number == "0") number = "00";
     return number;
 }
 
